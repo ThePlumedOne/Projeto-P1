@@ -21,6 +21,16 @@ const getUsSenatorsFile = () => {
         .then(parsed => parsed.objects);
 }
 
+const getRepresentativesByState = (state) => {
+    return getUsRepresentativesFile().then(reps =>
+        reps.filter(rep => rep.state === state))
+}
+
+const getSenatorsByState = (state) => {
+    return getUsSenatorsFile().then(reps =>
+        reps.filter(rep => rep.state === state))
+}
+
 
 app
     .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE']}))
@@ -42,7 +52,27 @@ app
         }
     })
 
-    .post('/us.representatives', async (req, res) => {
+    .get('/us.representatives/:state', async (req, res) => {
+        const {state} = req.params
+
+        try {
+            const usRepresentative = await getRepresentativesByState(state)
+            res.json(usRepresentative)
+        } catch (err) {
+            res.status(500).json({error: 'Falha ao obter dados'})
+        }
+
+
+    })
+    .get('/us.senators/:state', async (req, res) => {
+        const {state} = req.params
+
+        try {
+            const usRepresentative = await getRepresentativesByState(state)
+            res.json(usRepresentative)
+        } catch (err) {
+            res.status(500).json({error: 'Falha ao obter dados'})
+        }
 
 
     })

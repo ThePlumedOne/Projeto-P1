@@ -5,3 +5,11 @@ GET http://localhost:3000/us.representatives/
 
 #Retornar Current_US_Senators.json completo
 GET http://localhost:3000/us.senators
+
+###
+
+GET http://localhost:3000/us.representatives/VA
+
+###
+
+GET http://localhost:3000/us.senators/TX
