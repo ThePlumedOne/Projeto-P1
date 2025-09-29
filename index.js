@@ -1,8 +1,7 @@
 const express = require('express')
-const {readFile, writeFile} = require('node:fs/promises');
+const fs = require('node:fs/promises');
 const cors = require('cors')
 const status_codes = require('http')
-const fs = require('fs')
 const app = express()
 
 const Representative = require('./Representative');
@@ -12,7 +11,7 @@ const port = 3000
 
 // Pegar arquivos com os representantes
 const getUsRepresentativesFile = () => {
-    return readFile('./Current_US_Representatives.json', 'utf8')
+    return fs.readFile('./Current_US_Representatives.json', 'utf8')
         .then(data => JSON.parse(data))
         .then(parsed => parsed.objects);
 }
@@ -23,7 +22,7 @@ const getRepresentativesByState = (state) => {
 }
 
 const getUsSenatorsFile = () => {
-    return readFile('./Current_US_Senators.json', 'utf8')
+    return fs.readFile('./Current_US_Senators.json', 'utf8')
         .then(data => JSON.parse(data))
         .then(parsed => parsed.objects);
 
@@ -36,7 +35,6 @@ const getSenatorsByState = (state) => {
 }
 
 const addSenator = async (senatorData) => {
-
     const raw = await fs.readFile('./Current_US_Senators.json', 'utf8');
     const json = JSON.parse(raw);
 
@@ -48,16 +46,27 @@ const addSenator = async (senatorData) => {
         senatorData.gender,
         senatorData.title_long,
         senatorData.senator_class_label,
+        senatorData.senator_rank_label,
+        senatorData.party,
         senatorData.state
     );
 
+    const { error } = newSenator.validate();
+    if (error) {
+        throw new Error(error.details.map(d => d.message).join(', '));
+    }
 
     json.objects.push(newSenator);
-    return writeFile('./Current_US_Senators.json', JSON.stringify(json), 'utf8');
+
+    await fs.writeFile('./Current_US_Senators.json', JSON.stringify(json, null, 2), 'utf8');
+
+    return newSenator;
 };
 
 
+
 app
+    .use(express.json())
     .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE']}))
     .get('/us.representatives', async (req, res) => {
         try {
@@ -102,38 +111,24 @@ app
 
     })
 
-app.post('/us.senators', async (req, res) => {
-    const { body } = req;
+    .post('/us.senators', async (req, res) => {
+        try {
+            const body = req.body;
 
-    if (!body) return res.status(400).send({ error: 'Corpo da requisição não existe' });
+            if (!body) return res.status(400).json({ error: 'Corpo da requisição não existe' });
 
-    try {
-        const newSenatorInstance = new Senator(
-            body.bioguideid,
-            body.firstname,
-            body.lastname,
-            body.birthday,
-            body.gender,
-            body.title_long,
-            body.senator_class_label,
-            body.state
-        );
+            const newSenator = await addSenator(body);
 
-        const { error } = newSenatorInstance.validate();
-        if (error) {
-            const message = error.details.map(d => d.message).join(", ");
-            return res.status(400).send(message);
+            return res.status(201).json({
+                message: 'Senador adicionado com sucesso',
+                senator: newSenator
+            });
+
+        } catch (err) {
+            console.error(err);
+            return res.status(400).json({ error: err.message });
         }
-
-        await addSenator(body);
-
-        return res.status(201).json({ message: "Senador adicionado com sucesso" });
-
-    } catch (err) {
-        console.error(err);
-        return res.status(500).send("Erro ao inserir novo Senador");
-    }
-});
+    })
 
 
 app.listen(port, (error) => {

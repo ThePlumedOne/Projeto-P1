@@ -12,10 +12,11 @@ const RepresentativeSchema = Joi.object({
 })
 
 class Representative {
-    constructor(bioguideid, firstname, lastname, gender, title_long, party, state) {
+    constructor(bioguideid, firstname, lastname, birthday, gender, title_long, party, state) {
         this.bioguideid = bioguideid
         this.firstname = firstname
         this.lastname = lastname
+        this.birthday = birthday;
         this.gender = gender
         this.title_long = title_long
         this.party = party

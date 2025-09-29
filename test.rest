@@ -20,15 +20,16 @@ Host: localhost:3000
 Content-Type: application/json
 
 {
-  "bioguideid": "S000007",
-  "firstname": "David",
-  "lastname": "Brown",
-  "birthday": "1975-08-20",
-  "gender": "M",
+  "bioguideid": "S000008",
+  "firstname": "Emily",
+  "lastname": "Clark",
+  "birthday": "1982-04-10",
+  "gender": "F",
   "title_long": "Senator",
-  "senator_class_label": "Class I",
-  "party": "Republican",
-  "state": "FL"
+  "senator_class_label": "Class II",
+  "senator_rank_label": "Junior",
+  "party": "Democratic",
+  "state": "CA"
 }
 
 
