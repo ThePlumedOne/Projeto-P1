@@ -22,21 +22,33 @@ const getUsSenatorsFile = () => {
 }
 
 
-app.get('/us.representatives', async (req, res) => {
-    try {
-        const usRepresentatives = await getUsRepresentativesFile()
-        res.json(usRepresentatives)
-    } catch (err) {
-        res.status(500).json({error: 'Falha ao carregar representantes'})
-    }
-}).get('/us.senators', async (req, res) => {
-    try {
-        const senators = await getUsSenatorsFile()
-        res.json(senators)
-    } catch (err) {
-        res.status(500).json({error: 'Falha ao carregar senadores'})
-    }
-})
+app
+    .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE']}))
+    .get('/us.representatives', async (req, res) => {
+        try {
+            const usRepresentatives = await getUsRepresentativesFile()
+            res.json(usRepresentatives)
+        } catch (err) {
+            res.status(500).json({error: 'Falha ao carregar representantes'})
+        }
+    })
+
+    .get('/us.senators', async (req, res) => {
+        try {
+            const senators = await getUsSenatorsFile()
+            res.json(senators)
+        } catch (err) {
+            res.status(500).json({error: 'Falha ao carregar senadores'})
+        }
+    })
+
+    .post('/us.representatives', async (req, res) => {
+
+
+    })
+
+    .post('/us.senators', async (req, res) => {
+    })
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
