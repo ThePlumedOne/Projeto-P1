@@ -80,6 +80,14 @@ const updateRepresentative = async (bioguideid, updatedData) => {
     return updatedRep;
 };
 
+const deleteRepresentative = async (bioguideid) => {
+    const raw = await fs.readFile('./Current_US_Representatives.json', 'utf8');
+    const json = JSON.parse(raw);
+
+    json.objects = json.objects.filter(rep => rep.bioguideid !== bioguideid)
+    return fs.writeFile('./Current_US_Representatives.json', JSON.stringify(json, null, 2), 'utf8');
+}
+
 
 const getUsSenatorsFile = async () => {
     const data = await fs.readFile('./Current_US_Senators.json', 'utf8');
@@ -154,6 +162,14 @@ const updateSenator = async (bioguideid, updatedData) => {
     await fs.writeFile('./Current_US_Senators.json', JSON.stringify(json, null, 2), 'utf8');
     return updatedSenator;
 
+}
+
+const deleteSenator = async (bioguideid) => {
+    const raw = await fs.readFile('./Current_US_Senators.json', 'utf8');
+    const json = JSON.parse(raw);
+
+    json.objects = json.objects.filter(rep => rep.bioguideid !== bioguideid)
+    return fs.writeFile('./Current_US_Senators.json', JSON.stringify(json, null, 2), 'utf8');
 }
 
 
@@ -264,7 +280,7 @@ app
     })
 
     .put('/us.senators/:bioguideid', async (req, res) => {
-        try{
+        try {
             const {bioguideid} = req.params;
             const updatedData = req.body;
 
@@ -282,6 +298,43 @@ app
             res.status(400).json({error: err.message});
         }
 
+    })
+
+    .delete('/us.representatives/:bioguideid', async (req, res) => {
+        try {
+            const {bioguideid} = req.params;
+            if (!bioguideid) {
+                return res.status(400).json({error: 'Corpo da requisição não existe'});
+            }
+
+            const deletedData = await deleteRepresentative(bioguideid);
+            res.status(200).json({
+                message: 'Representante removido com sucesso',
+                representative: deletedData
+            })
+        }catch(err) {
+            console.error(err);
+            res.status(400).json({error: err.message});
+        }
+    })
+
+    .delete('/us.senators/:bioguideid', async (req, res) => {
+        try{
+            const {bioguideid} = req.params;
+
+            if (!bioguideid) {
+                return res.status(400).json({error: 'Corpo da requisição não existe'});
+            }
+
+            const deletedData = await deleteSenator(bioguideid);
+            res.status(200).json({
+                message: 'Senador removido com sucesso',
+                representative: deletedData
+            })
+        }catch(err) {
+            console.error(err);
+            res.status(400).json({error: err.message});
+        }
     })
 
 

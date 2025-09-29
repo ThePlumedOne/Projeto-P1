@@ -63,6 +63,30 @@ Content-Type: application/json
   "state": "CA"
 }
 
+###
+#Usando o bioguideid do último Senador em Current_US_Senators.json
+
+PUT /us.senators/M001244 HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "firstname": "Jane",
+  "lastname": "Doe",
+  "party": "Republican",
+  "state": "CA"
+}
+
+###
+
+#Usando o bioguideid do último representante em Current_US_Representatives.json
+DELETE http://localhost:3000/us.representatives/W000831
+
+###
+
+#Usando o bioguideid do último representante em Current_US_Senators.json
+DELETE http://localhost:3000/us.senators/M001244
+
 
 
 
