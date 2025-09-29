@@ -9,7 +9,7 @@ const Senator = require('./Senator');
 
 const port = 3000
 
-// Pegar arquivos com os representantes
+
 const getUsRepresentativesFile = async () => {
     const data = await fs.readFile('./Current_US_Representatives.json', 'utf8');
     const parsed = JSON.parse(data);
@@ -94,7 +94,6 @@ const getUsSenatorsFile = async () => {
     const parsed = JSON.parse(data);
     return parsed.objects;
 };
-
 
 const getSenatorsByState = async (state) => {
     const senators = await getUsSenatorsFile();
