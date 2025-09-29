@@ -6,7 +6,6 @@ const app = express()
 
 const Representative = require('./Representative');
 const Senator = require('./Senator');
-const representativeData = require("./Senator");
 
 const port = 3000
 
@@ -149,6 +148,25 @@ app
             return res.status(201).json({
                 message: 'Senador adicionado com sucesso',
                 senator: newSenator
+            });
+
+        } catch (err) {
+            console.error(err);
+            return res.status(400).json({ error: err.message });
+        }
+    })
+
+    .post('/us.representatives', async (req, res) => {
+        try {
+            const body = req.body;
+
+            if (!body) return res.status(400).json({ error: 'Corpo da requisição não existe' });
+
+            const newRepresentatuve = await addRepresentative(body);
+
+            return res.status(201).json({
+                message: 'Representante adicionado com sucesso',
+                senator: newRepresentatuve
             });
 
         } catch (err) {

@@ -32,5 +32,23 @@ Content-Type: application/json
   "state": "CA"
 }
 
+###
+
+POST /us.representatives HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "bioguideid": "R000123",
+  "firstname": "John",
+  "lastname": "Doe",
+  "birthday": "1980-05-15",
+  "gender": "M",
+  "title_long": "Representative",
+  "party": "Democratic",
+  "state": "CA"
+}
+
+
 
 
