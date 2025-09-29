@@ -54,7 +54,7 @@ const updateRepresentative = async (bioguideid, updatedData) => {
 
     const index = json.objects.findIndex(rep => rep.bioguideid === bioguideid);
     if (index === -1) {
-        throw new Error('Representative não encontrado');
+        throw new Error('Representante não encontrado');
     }
 
     json.objects[index] = {...json.objects[index], ...updatedData};
@@ -121,6 +121,40 @@ const addSenator = async (senatorData) => {
 
     return newSenator;
 };
+
+const updateSenator = async (bioguideid, updatedData) => {
+    const raw = await fs.readFile('./Current_US_Senators.json', 'utf8');
+    const json = JSON.parse(raw);
+
+    const index = json.objects.findIndex(sen => sen.bioguideid === bioguideid);
+    if (index === -1) {
+        throw new Error('Senador não encontrado');
+    }
+
+    json.objects[index] = {...json.objects[index], ...updatedData};
+
+    const updatedSenator = new Senator(
+        json.objects[index].bioguideid,
+        json.objects[index].firstname,
+        json.objects[index].lastname,
+        json.objects[index].birthday,
+        json.objects[index].gender,
+        json.objects[index].title_long,
+        json.objects[index].senator_class_label,
+        json.objects[index].senator_rank_label,
+        json.objects[index].party,
+        json.objects[index].state
+    )
+
+    const {error} = updatedSenator.validate();
+    if (error) {
+        throw new Error(error.details.map(d => d.message).join(', '));
+    }
+
+    await fs.writeFile('./Current_US_Senators.json', JSON.stringify(json, null, 2), 'utf8');
+    return updatedSenator;
+
+}
 
 
 app
@@ -227,7 +261,28 @@ app
             console.error(err);
             res.status(400).json({error: err.message});
         }
-    });
+    })
+
+    .put('/us.senators/:bioguideid', async (req, res) => {
+        try{
+            const {bioguideid} = req.params;
+            const updatedData = req.body;
+
+            if (!updatedData) {
+                return res.status(400).json({error: 'Corpo da requisição não existe'});
+            }
+
+            const updatedRep = await updateSenator(bioguideid, updatedData);
+            res.status(200).json({
+                message: 'Senador atualizado com sucesso',
+                representative: updatedRep
+            })
+        } catch (err) {
+            console.error(err);
+            res.status(400).json({error: err.message});
+        }
+
+    })
 
 
 app.listen(port, (error) => {

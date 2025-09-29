@@ -49,6 +49,20 @@ Content-Type: application/json
   "state": "CA"
 }
 
+###
+#Usando o bioguideid do último representante em Current_US_Representatives.json
+
+PUT /us.representatives/W000831 HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "firstname": "Jane",
+  "lastname": "Doe",
+  "party": "Republican",
+  "state": "CA"
+}
+
 
 
 
