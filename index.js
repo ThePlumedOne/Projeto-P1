@@ -3,9 +3,11 @@ const fs = require('node:fs/promises');
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const jwtAuth = require('./jwtAuth')
-const {logMiddleware} = require("./Logs")
+const {logs} = require("./Logs")
 
 require('dotenv').config();
+console.log(process.env.JWT_SECRET);
+console.log(process.env.JWT_EXPIRES);
 
 const app = express()
 
@@ -180,8 +182,8 @@ const deleteSenator = async (bioguideid) => {
 app
     .use(express.json())
     .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE']}))
-    .use(logMiddleware)
-    .post('./login', (req, res) => {
+    .use(logs)
+    .post('/login', (req, res) => {
         const {username, password} = req.body;
 
         if (!username || !password) {

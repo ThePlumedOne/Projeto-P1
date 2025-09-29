@@ -1,4 +1,4 @@
-const logs = (req, res) => {
+const logs = (req, res, next) => {
 
     const startTime = Date.now();
 
@@ -13,7 +13,9 @@ const logs = (req, res) => {
         console.log(`${formatLog(method, url, userId, duration)} - ${duration}ms`)
     })
 
-    module.exports = {
-        logs
-    }
+    next();
+}
+
+module.exports = {
+    logs
 }
