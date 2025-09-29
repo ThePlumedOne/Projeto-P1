@@ -1,9 +1,8 @@
-#Retornar Current_US_Representatives.json completo
+
 GET http://localhost:3000/us.representatives/
 
 ###
 
-#Retornar Current_US_Senators.json completo
 GET http://localhost:3000/us.senators
 
 ###
@@ -13,3 +12,24 @@ GET http://localhost:3000/us.representatives/VA
 ###
 
 GET http://localhost:3000/us.senators/TX
+
+###
+
+POST /us.senators HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "bioguideid": "S000007",
+  "firstname": "David",
+  "lastname": "Brown",
+  "birthday": "1975-08-20",
+  "gender": "M",
+  "title_long": "Senator",
+  "senator_class_label": "Class I",
+  "party": "Republican",
+  "state": "FL"
+}
+
+
+

@@ -14,13 +14,14 @@ const SenatorSchema = Joi.object({
 })
 
 class Senator {
-    constructor(bioguideid, firstname, lastname, birthday, gender, title_long, senator_class_label, state) {
+    constructor(bioguideid, firstname, lastname, birthday, gender, title_long, senator_class_label, party, state) {
         this.bioguideid = bioguideid;
         this.firstname = firstname;
         this.lastname = lastname;
         this.gender = gender;
         this.title_long = title_long;
         this.senator_class_label = senator_class_label;
+        this.party = party;
         this.state = state;
     }
 
