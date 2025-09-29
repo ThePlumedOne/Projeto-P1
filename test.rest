@@ -28,7 +28,7 @@ Content-Type: application/json
   "title_long": "Senator",
   "senator_class_label": "Class II",
   "senator_rank_label": "Junior",
-  "party": "Democratic",
+  "party": "Democrat",
   "state": "CA"
 }
 
@@ -45,7 +45,7 @@ Content-Type: application/json
   "birthday": "1980-05-15",
   "gender": "M",
   "title_long": "Representative",
-  "party": "Democratic",
+  "party": "Democrat",
   "state": "CA"
 }
 

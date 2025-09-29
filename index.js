@@ -21,17 +21,77 @@ const getRepresentativesByState = async (state) => {
     return reps.filter(rep => rep.state === state);
 };
 
+const addRepresentative = async (repData) => {
+    const raw = await fs.readFile('./Current_US_Representatives.json', 'utf8');
+    const json = JSON.parse(raw);
+
+    const newRepresentative = new Representative(
+        repData.bioguideid,
+        repData.firstname,
+        repData.lastname,
+        repData.birthday,
+        repData.gender,
+        repData.title_long,
+        repData.party,
+        repData.state,
+    );
+
+    const {error} = newRepresentative.validate();
+    if (error) {
+        throw new Error(error.details.map(d => d.message).join(', '));
+    }
+
+    json.objects.push(newRepresentative);
+
+    await fs.writeFile('./Current_US_Representatives.json', JSON.stringify(json, null, 2), 'utf8');
+
+    return newRepresentative;
+};
+
+const updateRepresentative = async (bioguideid, updatedData) => {
+    const raw = await fs.readFile('./Current_US_Representatives.json', 'utf8');
+    const json = JSON.parse(raw);
+
+    const index = json.objects.findIndex(rep => rep.bioguideid === bioguideid);
+    if (index === -1) {
+        throw new Error('Representative não encontrado');
+    }
+
+    json.objects[index] = {...json.objects[index], ...updatedData};
+
+    const updatedRep = new Representative(
+        json.objects[index].bioguideid,
+        json.objects[index].firstname,
+        json.objects[index].lastname,
+        json.objects[index].birthday,
+        json.objects[index].gender,
+        json.objects[index].title_long,
+        json.objects[index].party,
+        json.objects[index].state
+    );
+
+    const {error} = updatedRep.validate();
+    if (error) {
+        throw new Error(error.details.map(d => d.message).join(', '));
+    }
+
+    await fs.writeFile('./Current_US_Representatives.json', JSON.stringify(json, null, 2), 'utf8');
+
+    return updatedRep;
+};
+
+
 const getUsSenatorsFile = async () => {
     const data = await fs.readFile('./Current_US_Senators.json', 'utf8');
     const parsed = JSON.parse(data);
     return parsed.objects;
 };
 
+
 const getSenatorsByState = async (state) => {
     const senators = await getUsSenatorsFile();
     return senators.filter(sen => sen.state === state);
 };
-
 
 const addSenator = async (senatorData) => {
     const raw = await fs.readFile('./Current_US_Senators.json', 'utf8');
@@ -50,7 +110,7 @@ const addSenator = async (senatorData) => {
         senatorData.state
     );
 
-    const { error } = newSenator.validate();
+    const {error} = newSenator.validate();
     if (error) {
         throw new Error(error.details.map(d => d.message).join(', '));
     }
@@ -61,34 +121,6 @@ const addSenator = async (senatorData) => {
 
     return newSenator;
 };
-
-const addRepresentative = async (repData) => {
-    const raw = await fs.readFile('./Current_US_Representatives.json', 'utf8');
-    const json = JSON.parse(raw);
-
-    const newRepresentative = new Representative(
-        repData.bioguideid,
-        repData.firstname,
-        repData.lastname,
-        repData.birthday,
-        repData.gender,
-        repData.title_long,
-        repData.party,
-        repData.state,
-    );
-
-    const { error } = newRepresentative.validate();
-    if (error) {
-        throw new Error(error.details.map(d => d.message).join(', '));
-    }
-
-    json.objects.push(newRepresentative);
-
-    await fs.writeFile('./Current_US_Representatives.json', JSON.stringify(json, null, 2), 'utf8');
-
-    return newRepresentative;
-};
-
 
 
 app
@@ -141,7 +173,7 @@ app
         try {
             const body = req.body;
 
-            if (!body) return res.status(400).json({ error: 'Corpo da requisição não existe' });
+            if (!body) return res.status(400).json({error: 'Corpo da requisição não existe'});
 
             const newSenator = await addSenator(body);
 
@@ -152,7 +184,7 @@ app
 
         } catch (err) {
             console.error(err);
-            return res.status(400).json({ error: err.message });
+            return res.status(400).json({error: err.message});
         }
     })
 
@@ -160,7 +192,7 @@ app
         try {
             const body = req.body;
 
-            if (!body) return res.status(400).json({ error: 'Corpo da requisição não existe' });
+            if (!body) return res.status(400).json({error: 'Corpo da requisição não existe'});
 
             const newRepresentatuve = await addRepresentative(body);
 
@@ -171,9 +203,31 @@ app
 
         } catch (err) {
             console.error(err);
-            return res.status(400).json({ error: err.message });
+            return res.status(400).json({error: err.message});
         }
     })
+
+    .put('/us.representatives/:bioguideid', async (req, res) => {
+        try {
+            const {bioguideid} = req.params;
+            const updatedData = req.body;
+
+            if (!updatedData) {
+                return res.status(400).json({error: 'Corpo da requisição não existe'});
+            }
+
+            const updatedRep = await updateRepresentative(bioguideid, updatedData);
+
+            res.status(200).json({
+                message: 'Representante atualizado com sucesso',
+                representative: updatedRep
+            });
+
+        } catch (err) {
+            console.error(err);
+            res.status(400).json({error: err.message});
+        }
+    });
 
 
 app.listen(port, (error) => {
