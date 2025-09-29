@@ -1,6 +1,7 @@
 {
   "objects": [
     {
+      "bioguideid"         : "C001035",
       "firstname"          : "Susan",
       "lastname"           : "Collins",
       "birthday"           : "1952-12-07",
@@ -12,6 +13,7 @@
       "state"              : "ME"
     },
     {
+      "bioguideid"         : "C001056",
       "firstname"          : "John",
       "lastname"           : "Cornyn",
       "birthday"           : "1952-02-02",
@@ -23,6 +25,7 @@
       "state"              : "TX"
     },
     {
+      "bioguideid"         : "D000563",
       "firstname"          : "Richard",
       "lastname"           : "Durbin",
       "birthday"           : "1944-11-21",
@@ -34,6 +37,7 @@
       "state"              : "IL"
     },
     {
+      "bioguideid"         : "G000359",
       "firstname"          : "Lindsey",
       "lastname"           : "Graham",
       "birthday"           : "1955-07-09",
@@ -45,6 +49,7 @@
       "state"              : "SC"
     },
     {
+      "bioguideid"         : "M000355",
       "firstname"          : "Mitch",
       "lastname"           : "McConnell",
       "birthday"           : "1942-02-20",
@@ -56,6 +61,7 @@
       "state"              : "KY"
     },
     {
+      "bioguideid"         : "M001176",
       "firstname"          : "Jeff",
       "lastname"           : "Merkley",
       "birthday"           : "1956-10-24",
@@ -67,6 +73,7 @@
       "state"              : "OR"
     },
     {
+      "bioguideid"         : "R000122",
       "firstname"          : "John",
       "lastname"           : "Reed",
       "birthday"           : "1949-11-12",
@@ -78,6 +85,7 @@
       "state"              : "RI"
     },
     {
+      "bioguideid"         : "R000584",
       "firstname"          : "James",
       "lastname"           : "Risch",
       "birthday"           : "1943-05-03",
@@ -89,6 +97,7 @@
       "state"              : "ID"
     },
     {
+      "bioguideid"         : "S001181",
       "firstname"          : "Jeanne",
       "lastname"           : "Shaheen",
       "birthday"           : "1947-01-28",
@@ -100,6 +109,7 @@
       "state"              : "NH"
     },
     {
+      "bioguideid"         : "W000805",
       "firstname"          : "Mark",
       "lastname"           : "Warner",
       "birthday"           : "1954-12-15",
@@ -111,6 +121,7 @@
       "state"              : "VA"
     },
     {
+      "bioguideid"         : "C001088",
       "firstname"          : "Christopher",
       "lastname"           : "Coons",
       "birthday"           : "1963-09-09",
@@ -122,6 +133,7 @@
       "state"              : "DE"
     },
     {
+      "bioguideid"         : "C001047",
       "firstname"          : "Shelley",
       "lastname"           : "Capito",
       "birthday"           : "1953-11-26",
@@ -133,6 +145,7 @@
       "state"              : "WV"
     },
     {
+      "bioguideid"         : "C001075",
       "firstname"          : "Bill",
       "lastname"           : "Cassidy",
       "birthday"           : "1957-09-28",
@@ -144,6 +157,7 @@
       "state"              : "LA"
     },
     {
+      "bioguideid"         : "L000570",
       "firstname"          : "Ben",
       "lastname"           : "Luján",
       "birthday"           : "1972-06-07",
@@ -155,6 +169,7 @@
       "state"              : "NM"
     },
     {
+      "bioguideid"         : "M000133",
       "firstname"          : "Edward",
       "lastname"           : "Markey",
       "birthday"           : "1946-07-11",
@@ -166,6 +181,7 @@
       "state"              : "MA"
     },
     {
+      "bioguideid"         : "P000595",
       "firstname"          : "Gary",
       "lastname"           : "Peters",
       "birthday"           : "1958-12-01",
@@ -177,6 +193,7 @@
       "state"              : "MI"
     },
     {
+      "bioguideid"         : "C001095",
       "firstname"          : "Tom",
       "lastname"           : "Cotton",
       "birthday"           : "1977-05-13",
@@ -188,6 +205,7 @@
       "state"              : "AR"
     },
     {
+      "bioguideid"         : "D000618",
       "firstname"          : "Steve",
       "lastname"           : "Daines",
       "birthday"           : "1962-08-20",
@@ -199,6 +217,7 @@
       "state"              : "MT"
     },
     {
+      "bioguideid"         : "B001288",
       "firstname"          : "Cory",
       "lastname"           : "Booker",
       "birthday"           : "1969-04-27",
@@ -210,6 +229,7 @@
       "state"              : "NJ"
     },
     {
+      "bioguideid"         : "S001198",
       "firstname"          : "Dan",
       "lastname"           : "Sullivan",
       "birthday"           : "1964-11-13",
@@ -221,6 +241,7 @@
       "state"              : "AK"
     },
     {
+      "bioguideid"         : "E000295",
       "firstname"          : "Joni",
       "lastname"           : "Ernst",
       "birthday"           : "1970-07-01",
@@ -232,6 +253,7 @@
       "state"              : "IA"
     },
     {
+      "bioguideid"         : "T000476",
       "firstname"          : "Thom",
       "lastname"           : "Tillis",
       "birthday"           : "1960-08-30",
@@ -243,6 +265,7 @@
       "state"              : "NC"
     },
     {
+      "bioguideid"         : "R000605",
       "firstname"          : "Mike",
       "lastname"           : "Rounds",
       "birthday"           : "1954-10-24",
@@ -254,6 +277,7 @@
       "state"              : "SD"
     },
     {
+      "bioguideid"         : "M001198",
       "firstname"          : "Roger",
       "lastname"           : "Marshall",
       "birthday"           : "1960-08-09",
@@ -265,6 +289,7 @@
       "state"              : "KS"
     },
     {
+      "bioguideid"         : "S001203",
       "firstname"          : "Tina",
       "lastname"           : "Smith",
       "birthday"           : "1958-03-04",
@@ -276,6 +301,7 @@
       "state"              : "MN"
     },
     {
+      "bioguideid"         : "H001079",
       "firstname"          : "Cindy",
       "lastname"           : "Hyde-Smith",
       "birthday"           : "1959-05-10",
@@ -287,6 +313,7 @@
       "state"              : "MS"
     },
     {
+      "bioguideid"         : "L000571",
       "firstname"          : "Cynthia",
       "lastname"           : "Lummis",
       "birthday"           : "1954-09-10",
@@ -298,6 +325,7 @@
       "state"              : "WY"
     },
     {
+      "bioguideid"         : "T000278",
       "firstname"          : "Tommy",
       "lastname"           : "Tuberville",
       "birthday"           : "1954-09-18",
@@ -309,6 +337,7 @@
       "state"              : "AL"
     },
     {
+      "bioguideid"         : "H000273",
       "firstname"          : "John",
       "lastname"           : "Hickenlooper",
       "birthday"           : "1952-02-07",
@@ -320,6 +349,7 @@
       "state"              : "CO"
     },
     {
+      "bioguideid"         : "H000601",
       "firstname"          : "Bill",
       "lastname"           : "Hagerty",
       "birthday"           : "1959-08-14",
@@ -331,6 +361,7 @@
       "state"              : "TN"
     },
     {
+      "bioguideid"         : "O000174",
       "firstname"          : "Jon",
       "lastname"           : "Ossoff",
       "birthday"           : "1987-02-16",
@@ -342,6 +373,7 @@
       "state"              : "GA"
     },
     {
+      "bioguideid"         : "B001267",
       "firstname"          : "Michael",
       "lastname"           : "Bennet",
       "birthday"           : "1964-11-28",
@@ -353,6 +385,7 @@
       "state"              : "CO"
     },
     {
+      "bioguideid"         : "B001277",
       "firstname"          : "Richard",
       "lastname"           : "Blumenthal",
       "birthday"           : "1946-02-13",
@@ -364,6 +397,7 @@
       "state"              : "CT"
     },
     {
+      "bioguideid"         : "B001236",
       "firstname"          : "John",
       "lastname"           : "Boozman",
       "birthday"           : "1950-12-10",
@@ -375,6 +409,7 @@
       "state"              : "AR"
     },
     {
+      "bioguideid"         : "C000880",
       "firstname"          : "Michael",
       "lastname"           : "Crapo",
       "birthday"           : "1951-05-20",
@@ -386,6 +421,7 @@
       "state"              : "ID"
     },
     {
+      "bioguideid"         : "G000386",
       "firstname"          : "Charles",
       "lastname"           : "Grassley",
       "birthday"           : "1933-09-17",
@@ -397,6 +433,7 @@
       "state"              : "IA"
     },
     {
+      "bioguideid"         : "H001061",
       "firstname"          : "John",
       "lastname"           : "Hoeven",
       "birthday"           : "1957-03-13",
@@ -408,6 +445,7 @@
       "state"              : "ND"
     },
     {
+      "bioguideid"         : "J000293",
       "firstname"          : "Ron",
       "lastname"           : "Johnson",
       "birthday"           : "1955-04-08",
@@ -419,6 +457,7 @@
       "state"              : "WI"
     },
     {
+      "bioguideid"         : "L000575",
       "firstname"          : "James",
       "lastname"           : "Lankford",
       "birthday"           : "1968-03-04",
@@ -430,6 +469,7 @@
       "state"              : "OK"
     },
     {
+      "bioguideid"         : "L000577",
       "firstname"          : "Mike",
       "lastname"           : "Lee",
       "birthday"           : "1971-06-04",
@@ -441,6 +481,7 @@
       "state"              : "UT"
     },
     {
+      "bioguideid"         : "M000934",
       "firstname"          : "Jerry",
       "lastname"           : "Moran",
       "birthday"           : "1954-05-29",
@@ -452,6 +493,7 @@
       "state"              : "KS"
     },
     {
+      "bioguideid"         : "M001153",
       "firstname"          : "Lisa",
       "lastname"           : "Murkowski",
       "birthday"           : "1957-05-22",
@@ -463,6 +505,7 @@
       "state"              : "AK"
     },
     {
+      "bioguideid"         : "M001111",
       "firstname"          : "Patty",
       "lastname"           : "Murray",
       "birthday"           : "1950-10-11",
@@ -474,6 +517,7 @@
       "state"              : "WA"
     },
     {
+      "bioguideid"         : "P000603",
       "firstname"          : "Rand",
       "lastname"           : "Paul",
       "birthday"           : "1963-01-07",
@@ -485,6 +529,7 @@
       "state"              : "KY"
     },
     {
+      "bioguideid"         : "S000148",
       "firstname"          : "Charles",
       "lastname"           : "Schumer",
       "birthday"           : "1950-11-23",
@@ -496,6 +541,7 @@
       "state"              : "NY"
     },
     {
+      "bioguideid"         : "S001184",
       "firstname"          : "Tim",
       "lastname"           : "Scott",
       "birthday"           : "1965-09-19",
@@ -507,6 +553,7 @@
       "state"              : "SC"
     },
     {
+      "bioguideid"         : "T000250",
       "firstname"          : "John",
       "lastname"           : "Thune",
       "birthday"           : "1961-01-07",
@@ -518,6 +565,7 @@
       "state"              : "SD"
     },
     {
+      "bioguideid"         : "V000128",
       "firstname"          : "Chris",
       "lastname"           : "Van Hollen",
       "birthday"           : "1959-01-10",
@@ -529,6 +577,7 @@
       "state"              : "MD"
     },
     {
+      "bioguideid"         : "W000800",
       "firstname"          : "Peter",
       "lastname"           : "Welch",
       "birthday"           : "1947-05-02",
@@ -540,6 +589,7 @@
       "state"              : "VT"
     },
     {
+      "bioguideid"         : "W000779",
       "firstname"          : "Ron",
       "lastname"           : "Wyden",
       "birthday"           : "1949-05-03",
@@ -551,6 +601,7 @@
       "state"              : "OR"
     },
     {
+      "bioguideid"         : "Y000064",
       "firstname"          : "Todd",
       "lastname"           : "Young",
       "birthday"           : "1972-08-24",
@@ -562,6 +613,7 @@
       "state"              : "IN"
     },
     {
+      "bioguideid"         : "S001194",
       "firstname"          : "Brian",
       "lastname"           : "Schatz",
       "birthday"           : "1972-10-20",
@@ -573,6 +625,7 @@
       "state"              : "HI"
     },
     {
+      "bioguideid"         : "D000622",
       "firstname"          : "Tammy",
       "lastname"           : "Duckworth",
       "birthday"           : "1968-03-12",
@@ -584,6 +637,7 @@
       "state"              : "IL"
     },
     {
+      "bioguideid"         : "M001190",
       "firstname"          : "Markwayne",
       "lastname"           : "Mullin",
       "birthday"           : "1977-07-26",
@@ -595,6 +649,7 @@
       "state"              : "OK"
     },
     {
+      "bioguideid"         : "K000393",
       "firstname"          : "John",
       "lastname"           : "Kennedy",
       "birthday"           : "1951-11-21",
@@ -606,6 +661,7 @@
       "state"              : "LA"
     },
     {
+      "bioguideid"         : "H001076",
       "firstname"          : "Margaret",
       "lastname"           : "Hassan",
       "birthday"           : "1958-02-27",
@@ -617,6 +673,7 @@
       "state"              : "NH"
     },
     {
+      "bioguideid"         : "C001113",
       "firstname"          : "Catherine",
       "lastname"           : "Cortez Masto",
       "birthday"           : "1964-03-29",
@@ -628,6 +685,7 @@
       "state"              : "NV"
     },
     {
+      "bioguideid"         : "B001305",
       "firstname"          : "Ted",
       "lastname"           : "Budd",
       "birthday"           : "1971-10-21",
@@ -639,6 +697,7 @@
       "state"              : "NC"
     },
     {
+      "bioguideid"         : "K000377",
       "firstname"          : "Mark",
       "lastname"           : "Kelly",
       "birthday"           : "1964-02-21",
@@ -650,6 +709,7 @@
       "state"              : "AZ"
     },
     {
+      "bioguideid"         : "P000145",
       "firstname"          : "Alejandro",
       "lastname"           : "Padilla",
       "birthday"           : "1973-03-22",
@@ -661,6 +721,7 @@
       "state"              : "CA"
     },
     {
+      "bioguideid"         : "W000790",
       "firstname"          : "Raphael",
       "lastname"           : "Warnock",
       "birthday"           : "1969-07-23",
@@ -672,6 +733,7 @@
       "state"              : "GA"
     },
     {
+      "bioguideid"         : "B001319",
       "firstname"          : "Katie",
       "lastname"           : "Britt",
       "birthday"           : "1982-02-02",
@@ -683,6 +745,7 @@
       "state"              : "AL"
     },
     {
+      "bioguideid"         : "S001227",
       "firstname"          : "Eric",
       "lastname"           : "Schmitt",
       "birthday"           : "1975-06-20",
@@ -694,6 +757,7 @@
       "state"              : "MO"
     },
     {
+      "bioguideid"         : "F000479",
       "firstname"          : "John",
       "lastname"           : "Fetterman",
       "birthday"           : "1969-08-15",
@@ -705,6 +769,7 @@
       "state"              : "PA"
     },
     {
+      "bioguideid"         : "R000618",
       "firstname"          : "Pete",
       "lastname"           : "Ricketts",
       "birthday"           : "1964-08-19",
@@ -716,6 +781,7 @@
       "state"              : "NE"
     },
     {
+      "bioguideid"         : "C000127",
       "firstname"          : "Maria",
       "lastname"           : "Cantwell",
       "birthday"           : "1958-10-13",
@@ -727,6 +793,7 @@
       "state"              : "WA"
     },
     {
+      "bioguideid"         : "K000367",
       "firstname"          : "Amy",
       "lastname"           : "Klobuchar",
       "birthday"           : "1960-05-25",
@@ -738,6 +805,7 @@
       "state"              : "MN"
     },
     {
+      "bioguideid"         : "S000033",
       "firstname"          : "Bernard",
       "lastname"           : "Sanders",
       "birthday"           : "1941-09-08",
@@ -749,6 +817,7 @@
       "state"              : "VT"
     },
     {
+      "bioguideid"         : "W000802",
       "firstname"          : "Sheldon",
       "lastname"           : "Whitehouse",
       "birthday"           : "1955-10-20",
@@ -760,6 +829,7 @@
       "state"              : "RI"
     },
     {
+      "bioguideid"         : "B001261",
       "firstname"          : "John",
       "lastname"           : "Barrasso",
       "birthday"           : "1952-07-21",
@@ -771,6 +841,7 @@
       "state"              : "WY"
     },
     {
+      "bioguideid"         : "W000437",
       "firstname"          : "Roger",
       "lastname"           : "Wicker",
       "birthday"           : "1951-07-05",
@@ -782,6 +853,7 @@
       "state"              : "MS"
     },
     {
+      "bioguideid"         : "G000555",
       "firstname"          : "Kirsten",
       "lastname"           : "Gillibrand",
       "birthday"           : "1966-12-09",
@@ -793,6 +865,7 @@
       "state"              : "NY"
     },
     {
+      "bioguideid"         : "B001230",
       "firstname"          : "Tammy",
       "lastname"           : "Baldwin",
       "birthday"           : "1962-02-11",
@@ -804,6 +877,7 @@
       "state"              : "WI"
     },
     {
+      "bioguideid"         : "B001243",
       "firstname"          : "Marsha",
       "lastname"           : "Blackburn",
       "birthday"           : "1952-06-06",
@@ -815,6 +889,7 @@
       "state"              : "TN"
     },
     {
+      "bioguideid"         : "H001046",
       "firstname"          : "Martin",
       "lastname"           : "Heinrich",
       "birthday"           : "1971-10-17",
@@ -826,6 +901,7 @@
       "state"              : "NM"
     },
     {
+      "bioguideid"         : "H001042",
       "firstname"          : "Mazie",
       "lastname"           : "Hirono",
       "birthday"           : "1947-11-03",
@@ -837,6 +913,7 @@
       "state"              : "HI"
     },
     {
+      "bioguideid"         : "M001169",
       "firstname"          : "Christopher",
       "lastname"           : "Murphy",
       "birthday"           : "1973-08-03",
@@ -848,6 +925,7 @@
       "state"              : "CT"
     },
     {
+      "bioguideid"         : "S001150",
       "firstname"          : "Adam",
       "lastname"           : "Schiff",
       "birthday"           : "1960-06-22",
@@ -859,6 +937,7 @@
       "state"              : "CA"
     },
     {
+      "bioguideid"         : "W000817",
       "firstname"          : "Elizabeth",
       "lastname"           : "Warren",
       "birthday"           : "1949-06-22",
@@ -870,6 +949,7 @@
       "state"              : "MA"
     },
     {
+      "bioguideid"         : "K000383",
       "firstname"          : "Angus",
       "lastname"           : "King",
       "birthday"           : "1944-03-31",
@@ -881,6 +961,7 @@
       "state"              : "ME"
     },
     {
+      "bioguideid"         : "C001096",
       "firstname"          : "Kevin",
       "lastname"           : "Cramer",
       "birthday"           : "1961-01-21",
@@ -892,6 +973,7 @@
       "state"              : "ND"
     },
     {
+      "bioguideid"         : "F000463",
       "firstname"          : "Deb",
       "lastname"           : "Fischer",
       "birthday"           : "1951-03-01",
@@ -903,6 +985,7 @@
       "state"              : "NE"
     },
     {
+      "bioguideid"         : "C001098",
       "firstname"          : "Ted",
       "lastname"           : "Cruz",
       "birthday"           : "1970-12-22",
@@ -914,6 +997,7 @@
       "state"              : "TX"
     },
     {
+      "bioguideid"         : "K000384",
       "firstname"          : "Timothy",
       "lastname"           : "Kaine",
       "birthday"           : "1958-02-26",
@@ -925,6 +1009,7 @@
       "state"              : "VA"
     },
     {
+      "bioguideid"         : "G000574",
       "firstname"          : "Ruben",
       "lastname"           : "Gallego",
       "birthday"           : "1979-11-20",
@@ -936,6 +1021,7 @@
       "state"              : "AZ"
     },
     {
+      "bioguideid"         : "B001303",
       "firstname"          : "Lisa",
       "lastname"           : "Blunt Rochester",
       "birthday"           : "1962-02-10",
@@ -947,6 +1033,7 @@
       "state"              : "DE"
     },
     {
+      "bioguideid"         : "B001299",
       "firstname"          : "Jim",
       "lastname"           : "Banks",
       "birthday"           : "1979-07-16",
@@ -958,6 +1045,7 @@
       "state"              : "IN"
     },
     {
+      "bioguideid"         : "R000608",
       "firstname"          : "Jacky",
       "lastname"           : "Rosen",
       "birthday"           : "1957-08-02",
@@ -969,6 +1057,7 @@
       "state"              : "NV"
     },
     {
+      "bioguideid"         : "C001114",
       "firstname"          : "John",
       "lastname"           : "Curtis",
       "birthday"           : "1960-05-10",
@@ -980,6 +1069,7 @@
       "state"              : "UT"
     },
     {
+      "bioguideid"         : "S001208",
       "firstname"          : "Elissa",
       "lastname"           : "Slotkin",
       "birthday"           : "1976-07-10",
@@ -991,6 +1081,7 @@
       "state"              : "MI"
     },
     {
+      "bioguideid"         : "K000394",
       "firstname"          : "Andy",
       "lastname"           : "Kim",
       "birthday"           : "1982-07-12",
@@ -1002,6 +1093,7 @@
       "state"              : "NJ"
     },
     {
+      "bioguideid"         : "S001217",
       "firstname"          : "Rick",
       "lastname"           : "Scott",
       "birthday"           : "1952-12-01",
@@ -1013,6 +1105,7 @@
       "state"              : "FL"
     },
     {
+      "bioguideid"         : "H001089",
       "firstname"          : "Joshua",
       "lastname"           : "Hawley",
       "birthday"           : "1979-12-31",
@@ -1024,6 +1117,7 @@
       "state"              : "MO"
     },
     {
+      "bioguideid"         : "A000382",
       "firstname"          : "Angela",
       "lastname"           : "Alsobrooks",
       "birthday"           : "1971-02-23",
@@ -1035,6 +1129,7 @@
       "state"              : "MD"
     },
     {
+      "bioguideid"         : "S001232",
       "firstname"          : "Tim",
       "lastname"           : "Sheehy",
       "birthday"           : "1985-11-18",
@@ -1046,6 +1141,7 @@
       "state"              : "MT"
     },
     {
+      "bioguideid"         : "M001242",
       "firstname"          : "Bernie",
       "lastname"           : "Moreno",
       "birthday"           : "1967-02-14",
@@ -1057,6 +1153,7 @@
       "state"              : "OH"
     },
     {
+      "bioguideid"         : "M001243",
       "firstname"          : "Dave",
       "lastname"           : "McCormick",
       "birthday"           : "1965-08-17",
@@ -1068,6 +1165,7 @@
       "state"              : "PA"
     },
     {
+      "bioguideid"         : "J000312",
       "firstname"          : "Jim",
       "lastname"           : "Justice",
       "birthday"           : "1951-04-27",
@@ -1079,6 +1177,7 @@
       "state"              : "WV"
     },
     {
+      "bioguideid"         : "H001104",
       "firstname"          : "Jon",
       "lastname"           : "Husted",
       "birthday"           : "1967-08-25",
@@ -1090,6 +1189,7 @@
       "state"              : "OH"
     },
     {
+      "bioguideid"         : "M001244",
       "firstname"          : "Ashley",
       "lastname"           : "Moody",
       "birthday"           : "1975-03-28",
