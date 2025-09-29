@@ -2,8 +2,10 @@ const express = require('express')
 const {readFile, writeFile} = require('node:fs/promises');
 const cors = require('cors')
 const status_codes = require('http')
-const fs = require("node:fs");
 const app = express()
+
+const Representative = require('./Representative');
+const Senator = require('./Senator');
 
 const port = 3000
 
@@ -14,7 +16,6 @@ const getUsRepresentativesFile = () => {
         .then(parsed => parsed.objects);
 }
 
-// Pegar arquivo com os senadores
 const getUsSenatorsFile = () => {
     return readFile('./Current_US_Senators.json', 'utf8')
         .then(data => JSON.parse(data))
@@ -39,7 +40,7 @@ app
             const usRepresentatives = await getUsRepresentativesFile()
             res.json(usRepresentatives)
         } catch (err) {
-            res.status(500).json({error: 'Falha ao carregar representantes'})
+            res.status(500).send({error: 'Falha ao carregar representantes'})
         }
     })
 
@@ -48,7 +49,7 @@ app
             const senators = await getUsSenatorsFile()
             res.json(senators)
         } catch (err) {
-            res.status(500).json({error: 'Falha ao carregar senadores'})
+            res.status(500).send({error: 'Falha ao carregar senadores'})
         }
     })
 
@@ -59,7 +60,7 @@ app
             const usRepresentative = await getRepresentativesByState(state)
             res.json(usRepresentative)
         } catch (err) {
-            res.status(500).json({error: 'Falha ao obter dados'})
+            res.status(500).send({error: 'Falha ao obter dados'})
         }
 
 
@@ -71,16 +72,22 @@ app
             const usRepresentative = await getRepresentativesByState(state)
             res.json(usRepresentative)
         } catch (err) {
-            res.status(500).json({error: 'Falha ao obter dados'})
+            res.status(500).send({error: 'Falha ao obter dados'})
         }
 
 
     })
 
     .post('/us.senators', async (req, res) => {
+        console.log(req.body)
+        const { body } = req
+
+        if (!body) return res.status(400).send({error: 'Corpo da requisição não existe'})
     })
 
-app.listen(port, () => {
+app.listen(port, (error) => {
+
+    if (error) console.log(error)
     console.log(`Listening on port ${port}`)
 })
 
