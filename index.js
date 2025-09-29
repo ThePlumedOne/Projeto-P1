@@ -6,33 +6,33 @@ const app = express()
 
 const Representative = require('./Representative');
 const Senator = require('./Senator');
+const representativeData = require("./Senator");
 
 const port = 3000
 
 // Pegar arquivos com os representantes
-const getUsRepresentativesFile = () => {
-    return fs.readFile('./Current_US_Representatives.json', 'utf8')
-        .then(data => JSON.parse(data))
-        .then(parsed => parsed.objects);
-}
+const getUsRepresentativesFile = async () => {
+    const data = await fs.readFile('./Current_US_Representatives.json', 'utf8');
+    const parsed = JSON.parse(data);
+    return parsed.objects;
+};
 
-const getRepresentativesByState = (state) => {
-    return getUsRepresentativesFile().then(reps =>
-        reps.filter(rep => rep.state === state))
-}
+const getRepresentativesByState = async (state) => {
+    const reps = await getUsRepresentativesFile();
+    return reps.filter(rep => rep.state === state);
+};
 
-const getUsSenatorsFile = () => {
-    return fs.readFile('./Current_US_Senators.json', 'utf8')
-        .then(data => JSON.parse(data))
-        .then(parsed => parsed.objects);
+const getUsSenatorsFile = async () => {
+    const data = await fs.readFile('./Current_US_Senators.json', 'utf8');
+    const parsed = JSON.parse(data);
+    return parsed.objects;
+};
 
-}
+const getSenatorsByState = async (state) => {
+    const senators = await getUsSenatorsFile();
+    return senators.filter(sen => sen.state === state);
+};
 
-const getSenatorsByState = (state) => {
-    return getUsSenatorsFile().then(reps =>
-        reps.filter(rep => rep.state === state))
-
-}
 
 const addSenator = async (senatorData) => {
     const raw = await fs.readFile('./Current_US_Senators.json', 'utf8');
@@ -61,6 +61,33 @@ const addSenator = async (senatorData) => {
     await fs.writeFile('./Current_US_Senators.json', JSON.stringify(json, null, 2), 'utf8');
 
     return newSenator;
+};
+
+const addRepresentative = async (repData) => {
+    const raw = await fs.readFile('./Current_US_Representatives.json', 'utf8');
+    const json = JSON.parse(raw);
+
+    const newRepresentative = new Representative(
+        repData.bioguideid,
+        repData.firstname,
+        repData.lastname,
+        repData.birthday,
+        repData.gender,
+        repData.title_long,
+        repData.party,
+        repData.state,
+    );
+
+    const { error } = newRepresentative.validate();
+    if (error) {
+        throw new Error(error.details.map(d => d.message).join(', '));
+    }
+
+    json.objects.push(newRepresentative);
+
+    await fs.writeFile('./Current_US_Representatives.json', JSON.stringify(json, null, 2), 'utf8');
+
+    return newRepresentative;
 };
 
 
