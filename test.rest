@@ -6,6 +6,10 @@ Content-Type: application/json
   "password": "1234"
 }
 
+> {%
+    client.global.set("token", response.body.token);
+%}
+
 ###
 
 GET http://localhost:3000/us.representatives/
@@ -27,6 +31,7 @@ GET http://localhost:3000/us.senators/TX
 POST /us.senators HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "bioguideid": "S000008",
@@ -46,6 +51,7 @@ Content-Type: application/json
 POST /us.representatives HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "bioguideid": "R000123",
@@ -64,6 +70,7 @@ Content-Type: application/json
 PUT /us.representatives/W000831 HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "firstname": "Jane",
@@ -78,6 +85,7 @@ Content-Type: application/json
 PUT /us.senators/M001244 HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "firstname": "Jane",
@@ -90,11 +98,16 @@ Content-Type: application/json
 
 #Usando o bioguideid do último representante em Current_US_Representatives.json
 DELETE http://localhost:3000/us.representatives/W000831
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
 
 ###
 
 #Usando o bioguideid do último representante em Current_US_Senators.json
 DELETE http://localhost:3000/us.senators/M001244
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
 
 
