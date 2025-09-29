@@ -1,3 +1,12 @@
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "1234"
+}
+
+###
 
 GET http://localhost:3000/us.representatives/
 

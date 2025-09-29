@@ -1,7 +1,12 @@
 const express = require('express')
 const fs = require('node:fs/promises');
 const cors = require('cors')
-const status_codes = require('http')
+const jwt = require('jsonwebtoken')
+const jwtAuth = require('./jwtAuth')
+const {logMiddleware} = require("./Logs")
+
+require('dotenv').config();
+
 const app = express()
 
 const Representative = require('./Representative');
@@ -175,6 +180,26 @@ const deleteSenator = async (bioguideid) => {
 app
     .use(express.json())
     .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE']}))
+    .use(logMiddleware)
+    .post('./login', (req, res) => {
+        const {username, password} = req.body;
+
+        if (!username || !password) {
+            return res.status(400).send('É necessário fornecer credenciais');
+        }
+
+        if (username === 'admin' && password === '1234') {
+            const token = jwt.sign(
+                {user: username},
+                process.env.JWT_SECRET,
+                {expiresIn: process.env.JWT_EXPIRES},
+            )
+            return res.json({token});
+        }
+
+        return res.status(401).json({error: 'Credenciais Inválidas'});
+    })
+
     .get('/us.representatives', async (req, res) => {
         try {
             const usRepresentatives = await getUsRepresentativesFile()
@@ -218,7 +243,7 @@ app
 
     })
 
-    .post('/us.senators', async (req, res) => {
+    .post('/us.senators', jwtAuth, async (req, res) => {
         try {
             const body = req.body;
 
@@ -237,7 +262,7 @@ app
         }
     })
 
-    .post('/us.representatives', async (req, res) => {
+    .post('/us.representatives', jwtAuth, async (req, res) => {
         try {
             const body = req.body;
 
@@ -256,7 +281,7 @@ app
         }
     })
 
-    .put('/us.representatives/:bioguideid', async (req, res) => {
+    .put('/us.representatives/:bioguideid', jwtAuth, async (req, res) => {
         try {
             const {bioguideid} = req.params;
             const updatedData = req.body;
@@ -278,7 +303,7 @@ app
         }
     })
 
-    .put('/us.senators/:bioguideid', async (req, res) => {
+    .put('/us.senators/:bioguideid', jwtAuth, async (req, res) => {
         try {
             const {bioguideid} = req.params;
             const updatedData = req.body;
@@ -299,7 +324,7 @@ app
 
     })
 
-    .delete('/us.representatives/:bioguideid', async (req, res) => {
+    .delete('/us.representatives/:bioguideid', jwtAuth, async (req, res) => {
         try {
             const {bioguideid} = req.params;
             if (!bioguideid) {
@@ -311,14 +336,14 @@ app
                 message: 'Representante removido com sucesso',
                 representative: deletedData
             })
-        }catch(err) {
+        } catch (err) {
             console.error(err);
             res.status(400).json({error: err.message});
         }
     })
 
-    .delete('/us.senators/:bioguideid', async (req, res) => {
-        try{
+    .delete('/us.senators/:bioguideid', jwtAuth, async (req, res) => {
+        try {
             const {bioguideid} = req.params;
 
             if (!bioguideid) {
@@ -330,7 +355,7 @@ app
                 message: 'Senador removido com sucesso',
                 representative: deletedData
             })
-        }catch(err) {
+        } catch (err) {
             console.error(err);
             res.status(400).json({error: err.message});
         }
